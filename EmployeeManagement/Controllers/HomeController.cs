@@ -131,6 +131,14 @@ namespace EmployeeManagement.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            _employeeRepository.Delete(id);
+
+            return RedirectToAction("index");
+        }
+
 
         // EmployeeCreateViewModel is the parent of EmployeeEditViewModel
         public string ProcessUploadPhoto(EmployeeCreateViewModel model)
