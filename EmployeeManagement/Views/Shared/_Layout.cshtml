@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand" asp-action="index" asp-controller="home" >
+            <a class="navbar-brand" asp-action="index" asp-controller="home">
                 EManagement
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -28,14 +28,25 @@
                     </li>
                 </ul>
             </div>
-           
+
         </nav>
 
         <div>
             @RenderBody()
         </div>
-        
+
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>
