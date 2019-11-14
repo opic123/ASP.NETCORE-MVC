@@ -73,3 +73,9 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*custom styles*/
+.imageThumbnail {
+    height: 200px;
+    width: auto;
+}
