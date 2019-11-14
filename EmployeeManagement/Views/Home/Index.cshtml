@@ -1,0 +1,30 @@
+﻿@*namespace was imported @_ViewImports.cshtml*@
+@model IEnumerable<Employee>
+
+@{
+    // Layout = null;
+    ViewBag.Title = "Employee Index Page";
+}
+
+<div class="card-deck">
+    @foreach (var employee in Model)
+    {
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@employee.Name</h3>
+            </div>
+            <img src="~/images/boy.png" alt="Alternate Text" style="height:300px" />
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id" class="btn btn-primary m-1">View</a>
+                <a asp-controller="home" asp-action="edit" asp-route-id="@employee.Id" class="btn btn-primary m-1">Edit</a>
+                <a asp-controller="home" asp-action="delete" asp-route-id="@employee.Id" class="btn btn-primary m-1">Delete</a>
+            </div>
+        </div>
+    }
+       
+</div>
+
+
+@section Scripts{
+    <script src="~/js/CustomScript.js"></script>
+}

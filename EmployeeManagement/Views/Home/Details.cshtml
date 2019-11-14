@@ -1,0 +1,58 @@
+﻿@*namespace was imported @_ViewImports.cshtml*@
+@model HomeDetailsViewModel
+@{
+    // Layout = null;
+    ViewBag.Title = "Employee Details Page";
+}
+
+
+@*
+    <h1>@ViewData["Title"]</h1>
+
+    @{
+        var employee = ViewData["Employee"] as EmployeeManagement.Models.Employee;
+    }
+
+    <div class="row">
+        <h1>@employee.Name</h1>
+        <p>@employee.Department</p>
+    </div>*@
+
+@*<h1>@ViewBag.Title</h1>
+
+
+    <div class="row">
+        <h1>@ViewBag.Employee.Name</h1>
+        <p>@ViewBag.Employee.Department</p>
+    </div>*@
+
+
+@*<h1>@Model.PageTitle</h1>
+
+
+<div class="row">
+    <h1>@Model.Employee.Name</h1>
+    <p>@Model.Employee.Department</p>
+</div>*@
+
+
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1>@Model.Employee.Name</h1>
+                </div>
+                <div class="card-body text-center">
+                    <img class="card-img-top" src="~/images/boy.png" alt="Alternate Text" style="height:400px" />
+                    <h4>Employee ID: @Model.Employee.Id</h4>
+                    <h4>Email: @Model.Employee.Email</h4>
+                    <h4>Department: @Model.Employee.Department</h4>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+                    <a asp-controller="home" asp-action="edit" asp-route-id="@Model.Employee.Id" class="btn btn-primary m-1">Edit</a>
+                    <a asp-controller="home" asp-action="delete" asp-route-id="@Model.Employee.Id" class="btn btn-primary m-1">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div> 
