@@ -31,10 +31,17 @@ namespace EmployeeManagement.Controllers
 
         public ViewResult Details(int? Id)
         {
+            Employee employee = _employeeRepository.GetEmployee(Id ?? 1);
+
+            if (employee == null)
+            {
+                Response.StatusCode = 404;
+                return View("EmployeeNotFound", Id.Value);
+            }
 
             HomeDetailsViewModel model = new HomeDetailsViewModel()
             {
-                Employee = _employeeRepository.GetEmployee(Id ?? 1),
+                Employee = employee,
                 PageTitle = "Employee Details"
             };
             return View(model);
@@ -78,6 +85,12 @@ namespace EmployeeManagement.Controllers
         public IActionResult Edit(int id)
         {
             Employee employee = _employeeRepository.GetEmployee(id);
+
+            if (employee == null)
+            {
+                Response.StatusCode = 404;
+                return View("EmployeeNotFound", id);
+            }
 
             EmployeeEditViewModel model = new EmployeeEditViewModel
             {

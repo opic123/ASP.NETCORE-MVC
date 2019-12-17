@@ -46,7 +46,10 @@ namespace EmployeeManagement
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                // app.UseExceptionHandler("/Home/Error");
+                // custom error page
+                app.UseStatusCodePagesWithRedirects("/Error/{0}");
+                // app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
             app.UseStaticFiles();
 
